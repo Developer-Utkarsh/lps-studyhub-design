@@ -1,0 +1,14 @@
+
+ import "./resource.zmodel"  
+
+model Subject {
+
+    id                String        @id @default(uuid())  
+    name            String?          
+    iconUrl      String?          
+
+resources  Resource[]  @relation("subject")  
+      dateCreated DateTime @default(now())
+      dateUpdated DateTime @updatedAt  @default(now())
+      @@allow("all", true)
+}

@@ -1,0 +1,17 @@
+
+ import "./subject.zmodel"  
+
+model Resource {
+
+    id                String        @id @default(uuid())  
+    title          String?          
+    description  String?          
+    url              String?          
+    featured    Boolean?        
+    subjectId  String?          
+    subject      Subject?      @relation(fields: [subjectId], references: [id], name:"subject")  
+
+dateCreated DateTime @default(now())
+      dateUpdated DateTime @updatedAt  @default(now())
+      @@allow("all", true)
+}

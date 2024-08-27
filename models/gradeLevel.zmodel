@@ -1,0 +1,13 @@
+
+ import "./userGradeLevel.zmodel"  
+
+model GradeLevel {
+
+    id                String        @id @default(uuid())  
+    name            String?          
+
+userGradeLevels  UserGradeLevel[]  @relation("gradeLevel")  
+      dateCreated DateTime @default(now())
+      dateUpdated DateTime @updatedAt  @default(now())
+      @@allow("all", true)
+}
